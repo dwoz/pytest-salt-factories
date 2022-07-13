@@ -299,9 +299,9 @@ class SaltCli(SaltMixin, ScriptSubprocess):
                 value = json.dumps(value)
             cmdline.append("{}={}".format(key, value))
         cmdline = super().cmdline(*cmdline)
-        if self.python_executable:
-            if cmdline[0] != self.python_executable:
-                cmdline.insert(0, self.python_executable)
+        #if self.python_executable:
+        #    if cmdline[0] != self.python_executable:
+        #        cmdline.insert(0, self.python_executable)
         log.debug("Built cmdline: %s", cmdline)
         return cmdline
 
@@ -672,9 +672,9 @@ class SaltDaemon(SaltMixin, Daemon):
             # Default to being almost quiet on console output
             _args.append("--log-level=critical")
         cmdline = super().cmdline(*(_args + list(args)))
-        if self.python_executable:
-            if cmdline[0] != self.python_executable:
-                cmdline.insert(0, self.python_executable)
+        #if self.python_executable:
+        #    if cmdline[0] != self.python_executable:
+        #        cmdline.insert(0, self.python_executable)
         return cmdline
 
     def _set_started_at(self):

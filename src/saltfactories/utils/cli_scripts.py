@@ -168,6 +168,9 @@ def generate_script(
         bin_dir = pathlib.Path(bin_dir)
     bin_dir.mkdir(exist_ok=True)
 
+    if (bin_dir / script_name).is_file():
+        return str(bin_dir / script_name)
+
     cli_script_name = "cli_{}.py".format(script_name.replace("-", "_"))
     script_path = bin_dir / cli_script_name
 
